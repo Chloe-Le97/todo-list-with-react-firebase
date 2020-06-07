@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/todo-list-with-react-firebase/static/css/main.c07c3f75.chunk.css",
+    "main.js": "/todo-list-with-react-firebase/static/js/main.764aa066.chunk.js",
+    "main.js.map": "/todo-list-with-react-firebase/static/js/main.764aa066.chunk.js.map",
+    "runtime-main.js": "/todo-list-with-react-firebase/static/js/runtime-main.ffe9eda1.js",
+    "runtime-main.js.map": "/todo-list-with-react-firebase/static/js/runtime-main.ffe9eda1.js.map",
+    "static/js/2.5507e45a.chunk.js": "/todo-list-with-react-firebase/static/js/2.5507e45a.chunk.js",
+    "static/js/2.5507e45a.chunk.js.map": "/todo-list-with-react-firebase/static/js/2.5507e45a.chunk.js.map",
+    "index.html": "/todo-list-with-react-firebase/index.html",
+    "precache-manifest.3aa3e6beb3dae5c13f0f22f60911fae7.js": "/todo-list-with-react-firebase/precache-manifest.3aa3e6beb3dae5c13f0f22f60911fae7.js",
+    "service-worker.js": "/todo-list-with-react-firebase/service-worker.js",
+    "static/css/main.c07c3f75.chunk.css.map": "/todo-list-with-react-firebase/static/css/main.c07c3f75.chunk.css.map",
+    "static/js/2.5507e45a.chunk.js.LICENSE.txt": "/todo-list-with-react-firebase/static/js/2.5507e45a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ffe9eda1.js",
+    "static/js/2.5507e45a.chunk.js",
+    "static/css/main.c07c3f75.chunk.css",
+    "static/js/main.764aa066.chunk.js"
+  ]
+}
