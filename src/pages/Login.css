@@ -1,0 +1,65 @@
+body{
+    background-color: rgb(253, 252, 252);
+}
+.container2{
+    width:80%;
+    margin: 50px auto;
+    color: rgb(12, 148, 153);
+    border: 5px solid rgb(252, 184, 195);
+    background-color: white;
+    font-family: 'Montserrat';
+}
+.form{
+    margin: 20px 30px; 
+    width: 80%;
+}
+.title2{
+    color: rgb(5, 112, 116);
+    margin-left: 10px;
+    text-decoration: none;
+}
+.title2:hover{
+    color:  #f7c8a9;
+}
+::-webkit-input-placeholder{
+    color: #fadbe6;
+}
+.form-group input{
+    color:#f54d88e5;
+    width: 40%;
+    margin-top: 10px;
+}
+.form-button{
+    margin-top:20px;
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
+}
+.loginbtn{
+    height: 50px;
+    width: 150px;
+    cursor: pointer;
+    background-color: #ffd3b6;
+    font-size: 15px;
+    color: black;
+    font-family: 'Montserrat';
+    padding: 5px;
+}
+.loginbtn:hover{
+    background-color: #ffd3b6b9;
+}
+@media screen and (max-width: 1200px){
+    .form-group input{
+        width: 50%
+    }
+    .form-button{
+        width: 50%;
+    }
+    .loginbtn{
+        display: inline-block;
+        width: fit-content;
+    }
+}
+.form-error{
+    color:red;
+}

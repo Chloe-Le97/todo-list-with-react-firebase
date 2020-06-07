@@ -1,0 +1,15 @@
+
+.signUpBtn{
+    width: 100px;
+    margin-top: 20px;
+    cursor: pointer;
+    margin-left: 20px;
+    background-color: #ffd3b6;
+    font-size: 15px;
+    color: black;
+    font-family: 'Montserrat';
+    padding: 5px;
+}
+.signUpBtn:hover{
+    background-color: #ffd3b6b9;
+}

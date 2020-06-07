@@ -1,0 +1,42 @@
+.home{
+    background-color: white;
+    border: 1px solid white;
+    margin: 0 auto;
+    text-align: center;
+    min-height: 100vh;
+    background-color: #faf7f4;
+}
+.jumbo{
+    position: relative;
+    color: rgb(12, 148, 153);
+    border: 5px solid rgb(252, 184, 195);
+    background-color: white;
+    border-radius: 25px;
+    width: 50%;
+    margin: 70px auto;
+    min-height: 80vh;
+    font-family: 'Montserrat', sans-serif;
+    padding: 30px;
+}
+.container{
+    position: relative;
+    top: 50px;
+    width: 60%;
+    margin: 0 auto;   
+}
+.title{
+    font-size: 30px;
+}
+.intro{
+    font-size:20px;
+}
+.account{
+    display: flex;
+    justify-content: space-around;
+}
+.btn{
+    color:rgba(255, 96, 184, 0.993);
+}
+.btn:hover{
+    color:rgba(255, 96, 183, 0.801);
+}

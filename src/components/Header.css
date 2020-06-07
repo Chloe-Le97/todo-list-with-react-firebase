@@ -1,0 +1,35 @@
+body{
+    background-color: aqua;
+}
+.navbar{
+    width:70%;
+    margin: 0 auto;
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.nav-item{
+    display: inline-block;
+    margin-left: 20px;
+}
+.nav-item:hover{
+   color: #ffb17dd0;
+}
+.navbar-brand:hover{
+    color: rgb(255, 145, 0);
+}
+.navbar-nav .btn{
+    background-color: #ffd3b6;
+    color: black;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+.navbar-nav .btn:hover{
+    transform: translateY(-2px);
+    background-color: #ffd3b6f3;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.16);
+    
+}
