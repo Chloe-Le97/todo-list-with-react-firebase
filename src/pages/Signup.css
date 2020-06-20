@@ -4,12 +4,31 @@
     margin-top: 20px;
     cursor: pointer;
     margin-left: 20px;
-    background-color: #ffd3b6;
+    background-color: rgb(82, 224, 0);
     font-size: 15px;
     color: black;
-    font-family: 'Montserrat';
     padding: 5px;
 }
 .signUpBtn:hover{
-    background-color: #ffd3b6b9;
+    background-color: rgb(96, 255, 5);
+}
+.form-error{
+    color: black;
+    font-weight: bold;
+}
+.other{
+    color:white
+}
+.other:hover{
+    color:#ffc702
+}
+.already{
+    width: 40%;
+    position: absolute;
+    bottom: 10px;
+}
+@media screen and (max-width: 600px){
+    .already{
+        width:70%
+    }
 }

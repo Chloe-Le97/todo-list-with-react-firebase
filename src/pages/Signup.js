@@ -8,9 +8,10 @@ class Signup extends Component{
     constructor(props) {
         super(props);
         this.state = {
-          error: null,
+          error: '',
           email: '',
           password: '',
+          confirmPassword:'',
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,13 +25,17 @@ class Signup extends Component{
 
       async handleSubmit(event){
           event.preventDefault();
-          this.setState({error:''});
+          if(this.state.password!==this.state.confirmPassword){
+              this.setState({error:'Password does not match'})
+          }
+          else{
           try{
               await signup(this.state.email,this.state.password);
           }
           catch(error){
               this.setState({error:error.message})
           }
+        }
       }
 
 
@@ -40,7 +45,7 @@ class Signup extends Component{
             <div className='container2'>
                 <form className='form' onSubmit={this.handleSubmit}>
                     <h1>
-                        Sign Up to
+                        <p className='title-login'>Sign Up to</p>
                         <Link className='title2' to = '/'>My to do list</Link>
                     </h1>
                     <p>Fill in the form below to create an account</p>
@@ -60,15 +65,25 @@ class Signup extends Component{
                     onChange={this.handleChange} 
                     value={this.state.password} 
                     type="password">
-
+                        </input>
+                    </div>
+                    <div className='form-group'>
+                        <input 
+                    placeholder="Repeat Password" 
+                    name="confirmPassword" 
+                    onChange={this.handleChange} 
+                    value={this.state.confirmPassword} 
+                    type="password">
                         </input>
                     </div>
                     <div>
-                        {this.state.error? <p>{this.state.error}</p>:null}
+                        {this.state.error? <div className='form-error'>{this.state.error}</div>:null}
                         <button className='signUpBtn' type='submit'>Sign Up</button>
                     </div>
-                    <hr></hr>
-                    <p>Already have an account? <Link to='/login'>Login</Link></p>
+                  
+                    <p className="already">
+                        <hr />
+                        Already have an account? <Link className="other" to='/login'>Login</Link></p>
                 </form>
             </div>
         )

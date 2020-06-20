@@ -21,7 +21,7 @@ export default class Todolist extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.delItem = this.delItem.bind(this);
-    this.myRef = React.createRef();
+    this.userVerification = this.userVerification.bind(this);
   }
 
   async componentDidMount() {
@@ -42,6 +42,17 @@ export default class Todolist extends Component {
     }
   }
 
+  userVerification(event){
+    var actionCodeSettings = {
+      url: "https://to-do-list-with-react.web.app/todo",
+      handleCodeInApp: false
+  };
+    event.preventDefault();
+    this.state.user.sendEmailVerification(actionCodeSettings)
+    .then(function(){alert('Please check your mailbox for account confirmation link')})
+    .catch(function(error){this.setState({readError:error.message})});
+  }  
+
   handleChange(event) {
     this.setState({
       currentItem:{content: event.target.value}
@@ -53,7 +64,6 @@ export default class Todolist extends Component {
     var uid=this.state.user.uid;
     var ref2=db.ref("todo");
     this.setState({ writeError: null });
-    const chatArea = this.myRef.current;
     /*push the content and update key to the database of the specific user*/
     ref2.child(uid).push({
         content: this.state.currentItem.content,
@@ -68,8 +78,6 @@ export default class Todolist extends Component {
   }
 
   delItem(key){
-    var uid=this.state.user.uid;
-    var ref2=db.ref("todo"); 
     db.ref(`todo/${this.state.user.uid}/${key}`).remove();
 }
 
@@ -77,13 +85,17 @@ export default class Todolist extends Component {
     return (
       <div className='home'>
         
-
-        <div className="jumbo" ref={this.myRef}>
-          <Header />
-         
-          {/* todo area */}
-          <h1 className="title">What would you do today?</h1>
-          <form onSubmit={this.handleSubmit} className="mx-3">
+        <div className="jumbo">
+          <Header/>
+         {!this.state.user.emailVerified ? (<div className='email-confirm'>
+           <h1>Please verify your email address</h1>
+           <p>In order to use "To do list", you need to confirm your email address</p>
+           <button type='button' onClick={this.userVerification}>Verify email address</button>
+        </div>):
+          
+         (<>{/* todo area */} <div className='todo-container'>
+          <h1 className="title-todo">What would you do today?</h1>
+          <form onSubmit={this.handleSubmit}>
 
             <input 
 
@@ -96,7 +108,7 @@ export default class Todolist extends Component {
             </input>
 
           {this.state.error ? <p className="text-danger">{this.state.error}</p> : null}
-          <button type="submit" className="btn-submit">Send</button>
+          <button type="submit" className="btn-submit">+</button>
 
            {/* loading indicator */}
            {this.state.loading ? <div className="spinner-border text-success" role="status">
@@ -114,13 +126,13 @@ export default class Todolist extends Component {
             </li>
           })}
           </ul>
-        
+        </div>
        
         <div className="userName">
          <p>Login in as: <strong className="text-info">{this.state.user.email}</strong></p>
-         <p><button className="signOutBtn" onClick={() => auth().signOut()}>Logout</button></p>
+        </div></>)}
         </div>
-        </div>
+     
       </div>
     );
   }

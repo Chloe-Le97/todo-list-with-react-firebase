@@ -2,64 +2,86 @@ body{
     background-color: rgb(253, 252, 252);
 }
 .container2{
-    width:80%;
-    margin: 50px auto;
-    color: rgb(12, 148, 153);
-    border: 5px solid rgb(252, 184, 195);
-    background-color: white;
-    font-family: 'Montserrat';
+    width: 50%;
+    margin: 70px auto;
+    min-height: 80vh;
+    font-family: 'Roboto', sans-serif;
+    padding: 30px;
+    background-color:rgb(37, 37, 37);
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+}
+.title-login{
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.863);
 }
 .form{
-    margin: 20px 30px; 
+    margin: 50px auto; 
     width: 80%;
+    
 }
 .title2{
-    color: rgb(5, 112, 116);
-    margin-left: 10px;
+    font-size: 35px;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
     text-decoration: none;
+    color: #ffc702;
 }
 .title2:hover{
-    color:  #f7c8a9;
+    color:  #fbff02;
 }
 ::-webkit-input-placeholder{
-    color: #fadbe6;
+    color: #3b3b3bab;
 }
 .form-group input{
-    color:#f54d88e5;
-    width: 40%;
+    color:black;
+    width: 60%;
     margin-top: 10px;
+    padding: 5px;
 }
 .form-button{
-    margin-top:20px;
+    margin:20px auto;
     display: flex;
-    width: 40%;
-    justify-content: space-around;
+    justify-content: space-between ;
+    width: 60%;
 }
 .loginbtn{
     height: 50px;
     width: 150px;
     cursor: pointer;
-    background-color: #ffd3b6;
+    background-color: rgb(82, 224, 0);
     font-size: 15px;
-    color: black;
-    font-family: 'Montserrat';
+    color: white;
     padding: 5px;
 }
 .loginbtn:hover{
-    background-color: #ffd3b6b9;
+    background-color: rgb(96, 255, 5);
+    color: black;
 }
-@media screen and (max-width: 1200px){
+.form-error{
+    margin-top: 10px;
+    color:#fbff23;
+    font-weight: bold;
+}
+@media screen and (max-width: 600px){
+    body {
+        min-height: 100%;
+      }
+    .container2{
+        width: 82%;
+        overflow: hidden;
+        height: 100vh;
+        margin-top: 0;
+    }
     .form-group input{
-        width: 50%
+        width: 90%
     }
     .form-button{
-        width: 50%;
+        width: 90%;
     }
     .loginbtn{
         display: inline-block;
         width: fit-content;
     }
-}
-.form-error{
-    color:red;
 }

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { signin, signInWithGoogle} from "../helpers/auth";
 import './Login.css';
 
+
 export default class Login extends Component {
   constructor() {
     super();
@@ -50,9 +51,9 @@ export default class Login extends Component {
           onSubmit={this.handleSubmit}
         >
           <h1>
-            Login to 
+            <p className='title-login'>Login to</p>
             <Link className="title2" to="/">
-              My to do list
+            My to do list
             </Link>
           </h1>
           <p className="lead">
@@ -85,13 +86,14 @@ export default class Login extends Component {
             </div>
             <div className="form-button">
             <button className="loginbtn" type="submit">Login</button>
-          <button className="loginbtn" type="button" onClick={this.googleSignIn}>
+            <button className="loginbtn" type="button" onClick={this.googleSignIn}>
             Sign in with Google
-          </button>
+             </button>
            </div>   
-          <hr />
-          <p>
-            Don't have an account? <Link to="/signup">Sign up</Link>
+          
+          <p className="already">
+            <hr />
+            Don't have an account? <Link className="other" to="/signup">Sign up</Link>
           </p>
         </form>
 

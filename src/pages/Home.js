@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { auth } from '../services/firebase';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
@@ -13,12 +14,16 @@ export default class HomePage extends Component {
           <div className="jumbo">
             <Header></Header>
             <div className="container">
-              <h1 className="title">My To do list</h1>
+              <h1 className="title">To Do List</h1>
               <p className="intro">What would you do today?</p>
-              <div className="account">
+              {auth().currentUser
+            ? <div className="navbar-nav">
+              <Link className="my-activities" to="/todo">My activities</Link>
+            </div>
+            : <div className="account">
                 <Link className="btn" to="/signup">Create New Account</Link>
                 <Link className="btn" to="/login">Login to Your Account</Link>
-              </div>
+              </div>}
             </div>
           </div>
         </section>

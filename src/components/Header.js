@@ -7,15 +7,16 @@ function Header() {
   return (
     <header>
       <nav className="navbar">
-        <Link className="navbar-brand" to="/">Home</Link>
+        <button className="header-btn"><Link className="navbar-brand" to="/">Home</Link></button>
         <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
           {auth().currentUser
             ? <div className="navbar-nav">
-              <Link className="nav-item" to="/todo">My activities</Link>
+              <button className="header-btn"><Link className='nav-item' to="/todo">My activities</Link></button>
+              <button className="header-btn" onClick={() => auth().signOut()}>Logout</button>
             </div>
-            : <div className="navbar-nav">
-              <Link className="nav-item" to="/login">Sign In</Link>
-              <Link className="nav-item" to="/signup">Sign Up</Link>
+            : <div>
+              <button className="header-btn"><Link className='nav-item' to="/login">Sign In</Link></button>
+              <button className="header-btn"><Link className='nav-item' to="/signup">Sign Up</Link></button>
             </div>}
         </div>
       </nav>
