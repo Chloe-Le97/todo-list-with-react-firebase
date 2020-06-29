@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { signin, signInWithGoogle} from "../helpers/auth";
-import './Login.css';
-
+import { signin, signInWithGoogle } from "../helpers/auth";
+import "./Login.css";
+import logo from "../assets/ggsign-in1.png";
 
 export default class Login extends Component {
   constructor() {
@@ -10,7 +10,7 @@ export default class Login extends Component {
     this.state = {
       error: null,
       email: "",
-      password: ""
+      password: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,17 +19,21 @@ export default class Login extends Component {
 
   handleChange(event) {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   }
 
   async handleSubmit(event) {
     event.preventDefault();
     this.setState({ error: "" });
-    try {
-      await signin(this.state.email, this.state.password);
-    } catch (error) {
-      this.setState({ error: error.message });
+    if (this.state.email == "" || this.state.password == "") {
+      this.setState({ error: "Please type required fields" });
+    } else {
+      try {
+        await signin(this.state.email, this.state.password);
+      } catch (error) {
+        this.setState({ error: error.message });
+      }
     }
   }
 
@@ -41,19 +45,15 @@ export default class Login extends Component {
     }
   }
 
-
   render() {
     return (
       <div className="container2">
-        <form
-          className="form"
-          autoComplete="off"
-          onSubmit={this.handleSubmit}
-        >
+        <div></div>
+        <form className="form" autoComplete="off" onSubmit={this.handleSubmit}>
           <h1>
-            <p className='title-login'>Login to</p>
+            <p className="title-login">Login to</p>
             <Link className="title2" to="/">
-            My to do list
+              My to do list
             </Link>
           </h1>
           <p className="lead">
@@ -79,24 +79,37 @@ export default class Login extends Component {
               type="password"
             />
           </div>
-            <div className='form-error'>         
+          <div className="form-error">
             {this.state.error ? (
               <p className="text-danger">{this.state.error}</p>
             ) : null}
+          </div>
+          <div className="form-button">
+            <button className="loginbtn" type="submit">
+              Login
+            </button>
+            <div className="loginGg" onClick={this.googleSignIn}>
+              <img src={logo} className="logo"></img>
+              <div>Log In With Google</div>
             </div>
-            <div className="form-button">
-            <button className="loginbtn" type="submit">Login</button>
-            <button className="loginbtn" type="button" onClick={this.googleSignIn}>
-            Sign in with Google
-             </button>
-           </div>   
-          
-          <p className="already">
-            <hr />
-            Don't have an account? <Link className="other" to="/signup">Sign up</Link>
-          </p>
+          </div>
         </form>
 
+        <div>
+          <div className="already">
+            Don't have an account?{" "}
+            <Link className="other" to="/signup">
+              Sign up
+            </Link>
+          </div>
+
+          <div className="reset">
+            Forget your password?
+            <Link className="forgot" to="/resetPassword">
+              Reset Password
+            </Link>
+          </div>
+        </div>
       </div>
     );
   }

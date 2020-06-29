@@ -13,7 +13,10 @@ export function signInWithGoogle() {
   return auth().signInWithPopup(provider);
 }
 
-
 export function logout() {
   return auth().signOut();
+}
+
+export function resetPassword(email) {
+  return auth().sendPasswordResetEmail(email);
 }

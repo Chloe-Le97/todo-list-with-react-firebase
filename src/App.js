@@ -3,27 +3,27 @@ import {
   Route,
   BrowserRouter as Router,
   Switch,
-  Redirect
+  Redirect,
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Todolist from "./pages/Todo";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import {auth} from "./services/firebase";
-
+import { auth } from "./services/firebase";
+import ResetPassword from "./pages/resetPassword";
 
 function PrivateRoute({ component: Component, authenticated, ...rest }) {
   return (
     <Route
       {...rest}
-      render={props =>
+      render={(props) =>
         authenticated === true ? (
           <Component {...props} />
         ) : (
-            <Redirect
-              to={{ pathname: "/login", state: { from: props.location } }}
-            />
-          )
+          <Redirect
+            to={{ pathname: "/login", state: { from: props.location } }}
+          />
+        )
       }
     />
   );
@@ -33,12 +33,12 @@ function PublicRoute({ component: Component, authenticated, ...rest }) {
   return (
     <Route
       {...rest}
-      render={props =>
+      render={(props) =>
         authenticated === false ? (
           <Component {...props} />
         ) : (
-            <Redirect to="/todo" />
-          )
+          <Redirect to="/todo" />
+        )
       }
     />
   );
@@ -49,53 +49,62 @@ class App extends React.Component {
     super();
     this.state = {
       authenticated: false,
-      loading: true
+      loading: true,
     };
   }
 
-  componentDidMount(){
-    auth().onAuthStateChanged(user => {
+  componentDidMount() {
+    auth().onAuthStateChanged((user) => {
       if (user) {
-          this.setState({
+        this.setState({
           authenticated: true,
-          loading: false
+          loading: false,
         });
       } else {
-          this.setState({
+        this.setState({
           authenticated: false,
-          loading: false
+          loading: false,
         });
       }
     });
   }
 
   render() {
-    return this.state.loading === true ? (
-      <div className="spinner-border text-success" role="status">
-        <span className="sr-only">Loading...</span>
+    return (
+      <div className="body">
+        {this.state.loading === true ? (
+          <div className="spinner-border text-success" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        ) : (
+          <Router>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <PrivateRoute
+                path="/todo"
+                authenticated={this.state.authenticated}
+                component={Todolist}
+              />
+              <PublicRoute
+                path="/signup"
+                authenticated={this.state.authenticated}
+                component={Signup}
+              />
+              <PublicRoute
+                path="/login"
+                authenticated={this.state.authenticated}
+                component={Login}
+              />
+              <PublicRoute
+                path="/resetPassword"
+                authenticated={this.state.authenticated}
+                component={ResetPassword}
+              />
+            </Switch>
+          </Router>
+        )}
       </div>
-    ) : (
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <PrivateRoute
-              path="/todo"
-              authenticated={this.state.authenticated}
-              component={Todolist}
-            />
-            <PublicRoute
-              path="/signup"
-              authenticated={this.state.authenticated}
-              component={Signup}
-            />
-            <PublicRoute
-              path="/login"
-              authenticated={this.state.authenticated}
-              component={Login}
-            />
-          </Switch>
-        </Router>
-      );
+    );
   }
 }
 

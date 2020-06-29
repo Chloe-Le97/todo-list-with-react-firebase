@@ -1,107 +1,110 @@
-.title-todo{
-    font-family: 'Roboto', sans-serif;
-    color: #FFC702;
+.title-todo {
+  font-family: "Roboto", sans-serif;
+  color: #ffc702;
 }
-.todo-container{
-    margin-top: 70px;
+.todo-container {
+  margin-top: 70px;
 }
-.inputAct{
-    width: 45%;
-    font-size: 20px;
-    background-color: white;
-    padding: 10px;
-    border-radius: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.719) ;
-    color: black;
+.inputAct {
+  width: 45%;
+  font-size: 20px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.719);
+  color: black;
 }
-.inputAct::placeholder{
-    color: rgba(124, 124, 124, 0.705);
+.inputAct::placeholder {
+  color: rgba(124, 124, 124, 0.705);
 }
-.btn-submit{
-    margin-left: 20px;
-    color: white;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background-color:rgb(82, 224, 0);
-    cursor: pointer;
+.btn-submit {
+  margin-left: 20px;
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: rgb(82, 224, 0);
+  cursor: pointer;
 }
-.btn-submit:hover{
-    background-color: rgb(96, 255, 5);
+.btn-submit:hover {
+  background-color: rgb(96, 255, 5);
 }
-.userName{
-    position: absolute; 
-    bottom: 1px ;
-    width: 60%;
-    right: 20%;
-    color: rgba(255, 255, 255, 0.815);
+.userName {
+  position: absolute;
+  bottom: 1px;
+  width: 60%;
+  right: 20%;
+  color: rgba(255, 255, 255, 0.815);
 }
-.home{
-    position: relative;
+.home {
+  position: relative;
 }
 ul {
-    text-align: left;
-    position: relative;
-    width: 65%;
-    margin:20px auto;
-    margin-bottom: 90px;
+  text-align: left;
+  position: relative;
+  width: 65%;
+  margin: 20px auto;
+  margin-bottom: 90px;
 }
 
-ul button{
-    position: absolute;
-    right: 10%;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #f55c48;
-    cursor: pointer;
+ul button {
+  position: absolute;
+  right: 10%;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f55c48;
+  cursor: pointer;
 }
-ul button:hover{
-    background-color:#fc351a;
+ul button:hover {
+  background-color: #fc351a;
 }
 
 li {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
+  text-align: left;
+  font-size: 20px;
+  list-style: none;
+  font-family: "Montserrat", sans-serif;
+  text-transform: capitalize;
+  padding: 30px;
+  border-bottom: 1px solid white;
+  font-weight: 800;
+  color: white;
+}
+.verify-btn {
+  background-color: rgba(26, 221, 0, 0.76);
+  cursor: pointer;
+  font-size: 18px;
+}
+.verify-btn:hover {
+  background-color: rgb(96, 255, 5);
+}
+
+@media screen and (max-width: 600px) {
+  ul {
+    width: 90%;
     text-align: left;
-    font-size: 20px;
-    list-style: none;
-    font-family: 'Montserrat', sans-serif;
-    text-transform: capitalize;
-    padding: 30px;
-    border-bottom: 1px solid white;
-    font-weight: 800;
-    color: white;
+    padding: 0;
+    padding-bottom: 60px;
+  }
+  ul button {
+    right: 0%;
+  }
+  .btn-submit {
+    margin-left: 13px;
+  }
+  li {
+    text-align: left;
+    width: 90%;
+    padding-left: 0;
+  }
+  .inputAct {
+    width: 69%;
+    padding: 5px;
+  }
+  .email-confirm {
+    margin-top: 100px;
+  }
 }
-
-.email-confirm{
-    margin-top: 180px;
-}
-
-@media screen and (max-width: 600px){
-    ul{
-        width:90%;
-        text-align: left;
-        padding: 0;
-        padding-bottom: 60px;
-    }
-    ul button{
-        right:0%;
-    }
-    .btn-submit{
-        margin-left: 13px;
-    }
-    li{
-        text-align: left;
-        width: 90%;
-        padding-left: 0;
-    }
-    .inputAct{
-        width: 69%;
-        padding:5px;
-    }
-    .email-confirm{
-        margin-top: 100px;
-    }
-}
-

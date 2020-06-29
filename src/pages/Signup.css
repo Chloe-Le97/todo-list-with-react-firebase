@@ -1,34 +1,37 @@
-
-.signUpBtn{
-    width: 100px;
-    margin-top: 20px;
-    cursor: pointer;
-    margin-left: 20px;
-    background-color: rgb(82, 224, 0);
-    font-size: 15px;
-    color: black;
-    padding: 5px;
+.signUpBtn {
+  width: 100px;
+  margin-top: 20px;
+  cursor: pointer;
+  margin-left: 20px;
+  background-color: rgb(82, 224, 0);
+  font-size: 15px;
+  color: black;
+  padding: 5px;
 }
-.signUpBtn:hover{
-    background-color: rgb(96, 255, 5);
+.signUpBtn:hover {
+  border: none;
+  box-shadow: 0 0 10px rgba(89, 240, 2, 0.753);
+  color: black;
 }
-.form-error{
-    color: black;
-    font-weight: bold;
+.other {
+  color: white;
 }
-.other{
-    color:white
+.other:hover {
+  color: #ffc702;
 }
-.other:hover{
-    color:#ffc702
+.already {
+  width: 40%;
+  position: absolute;
+  bottom: 10px;
 }
-.already{
-    width: 40%;
-    position: absolute;
-    bottom: 10px;
+.forgot {
+  color: white;
 }
-@media screen and (max-width: 600px){
-    .already{
-        width:70%
-    }
+.forgot:hover {
+  color: #ffc702;
+}
+@media screen and (max-width: 600px) {
+  .already {
+    width: 70%;
+  }
 }
