@@ -1,7 +1,5 @@
 import React from "react";
 import { resetPassword } from "../helpers/auth";
-import { auth } from "../services/firebase";
-import { db } from "../services/firebase";
 import Header from "../components/Header";
 import "./resetPassword.css";
 
