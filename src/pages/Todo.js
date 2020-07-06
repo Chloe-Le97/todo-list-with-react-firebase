@@ -166,7 +166,7 @@ export default class Todolist extends Component {
                   {this.state.todo.map((item) => {
                     if (item.complete) {
                       return (
-                        <li key={item.key} className="uncomplete-item">
+                        <li key={item.key} className="complete-item">
                           {item.content}
 
                           <button
@@ -178,6 +178,7 @@ export default class Todolist extends Component {
                           <img
                             src={check}
                             className="done"
+                            alt="check"
                             onClick={() => this.completeItem(item.key)}
                           ></img>
                           <br />
@@ -197,6 +198,7 @@ export default class Todolist extends Component {
                           <img
                             src={check}
                             className="done"
+                            alt="check"
                             onClick={() => this.completeItem(item.key)}
                           ></img>
                           <br />
