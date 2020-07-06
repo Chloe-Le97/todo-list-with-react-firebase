@@ -13,7 +13,7 @@ export default class HomePage extends Component {
           <div className="jumbo">
             <Header></Header>
             <div className="container">
-              <h1 className="title">To Do List</h1>
+              <h1 className="title">FINISH ME!</h1>
               <p className="intro">What would you do today?</p>
               {auth().currentUser ? (
                 <div className="navbar-nav">

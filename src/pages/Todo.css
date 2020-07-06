@@ -47,18 +47,18 @@ ul {
   margin-bottom: 90px;
 }
 
-ul button {
+.del {
   position: absolute;
   right: 10%;
   color: white;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #f55c48;
+  background-color: #fc351a;
   cursor: pointer;
 }
 ul button:hover {
-  background-color: #fc351a;
+  filter: brightness(120%);
 }
 
 li {
@@ -107,4 +107,18 @@ li {
   .email-confirm {
     margin-top: 100px;
   }
+}
+.done {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 20%;
+  background-image: url("./asset/checkk.png");
+  cursor: pointer;
+}
+.done:hover {
+  filter: brightness(120%);
+}
+.uncomplete-item {
+  text-decoration: line-through;
 }

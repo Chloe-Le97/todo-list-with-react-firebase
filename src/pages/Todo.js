@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import { auth } from "../services/firebase";
 import { db } from "../services/firebase";
 import "./Todo.css";
+import check from "./asset/checkk.png";
 
 export default class Todolist extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ export default class Todolist extends Component {
       currentItem: {
         content: "",
         placeId: "",
+        complete: false,
       },
       readError: null,
       writeError: null,
@@ -21,6 +23,7 @@ export default class Todolist extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.delItem = this.delItem.bind(this);
+    this.completeItem = this.completeItem.bind(this);
     this.userVerification = this.userVerification.bind(this);
   }
 
@@ -71,6 +74,7 @@ export default class Todolist extends Component {
     var uid = this.state.user.uid;
     var ref2 = db.ref("todo");
     this.setState({ writeError: null });
+    this.setState({ currentItem: { complete: false } });
     /*push the content and update key to the database of the specific user*/
     ref2
       .child(uid)
@@ -81,10 +85,27 @@ export default class Todolist extends Component {
         ref2
           .child(uid)
           .child(snapshot.key)
-          .update({ key: snapshot.key })
+          .update({
+            key: snapshot.key,
+            complete: this.state.currentItem.complete,
+          })
           .then(this.setState({ currentItem: { placeId: snapshot.key } }))
+          // .then(this.setState({ currentItem: { complete: false } }))
           .then(this.setState({ currentItem: { content: "" } }));
       });
+  }
+
+  async completeItem(key) {
+    var uid = this.state.user.uid;
+    await this.setState((preState) => ({
+      currentItem: { complete: !preState.currentItem.complete },
+    }));
+
+    db.ref(`todo/${this.state.user.uid}/${key}`).update({
+      complete: this.state.currentItem.complete,
+    });
+
+    // console.log(this.state.currentItem.complete);
   }
 
   delItem(key) {
@@ -143,18 +164,45 @@ export default class Todolist extends Component {
                 </form>
                 <ul>
                   {this.state.todo.map((item) => {
-                    return (
-                      <li key={item.key} className="item">
-                        {item.content}
-                        <button
-                          className="del"
-                          onClick={() => this.delItem(item.key)}
-                        >
-                          X
-                        </button>
-                        <br />
-                      </li>
-                    );
+                    if (item.complete) {
+                      return (
+                        <li key={item.key} className="uncomplete-item">
+                          {item.content}
+
+                          <button
+                            className="del"
+                            onClick={() => this.delItem(item.key)}
+                          >
+                            X
+                          </button>
+                          <img
+                            src={check}
+                            className="done"
+                            onClick={() => this.completeItem(item.key)}
+                          ></img>
+                          <br />
+                        </li>
+                      );
+                    } else {
+                      return (
+                        <li key={item.key} className="item">
+                          {item.content}
+
+                          <button
+                            className="del"
+                            onClick={() => this.delItem(item.key)}
+                          >
+                            X
+                          </button>
+                          <img
+                            src={check}
+                            className="done"
+                            onClick={() => this.completeItem(item.key)}
+                          ></img>
+                          <br />
+                        </li>
+                      );
+                    }
                   })}
                 </ul>
               </div>
