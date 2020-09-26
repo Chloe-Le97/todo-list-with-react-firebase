@@ -47,7 +47,7 @@ export default class Todolist extends Component {
     }
   }
 
-  userVerification(event) {
+  async userVerification(event) {
     var actionCodeSettings = {
       url: "https://to-do-list-with-react.web.app/todo",
       handleCodeInApp: false,
@@ -90,7 +90,6 @@ export default class Todolist extends Component {
             complete: this.state.currentItem.complete,
           })
           .then(this.setState({ currentItem: { placeId: snapshot.key } }))
-          // .then(this.setState({ currentItem: { complete: false } }))
           .then(this.setState({ currentItem: { content: "" } }));
       });
   }

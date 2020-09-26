@@ -27,7 +27,7 @@ export default class HomePage extends Component {
                     Create New Account
                   </Link>
                   <Link className="btn" to="/login">
-                    Login to Your Account
+                    Login To Account
                   </Link>
                 </div>
               )}

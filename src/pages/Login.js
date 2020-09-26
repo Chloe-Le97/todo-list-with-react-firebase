@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { signin, signInWithGoogle } from "../helpers/auth";
 import "./Login.css";
-import logo from "../assets/ggsign-in1.png";
 
 export default class Login extends Component {
   constructor() {
@@ -37,7 +36,8 @@ export default class Login extends Component {
     }
   }
 
-  async googleSignIn() {
+  async googleSignIn(event) {
+    event.preventDefault();
     try {
       await signInWithGoogle();
     } catch (error) {
@@ -88,8 +88,7 @@ export default class Login extends Component {
             <button className="loginbtn" type="submit">
               Login
             </button>
-            <div className="loginGg" onClick={this.googleSignIn}>
-              <img src={logo} className="logo"></img>
+            <div className="loginGg" type="button" onClick={this.googleSignIn}>
               <div>Log In With Google</div>
             </div>
           </div>

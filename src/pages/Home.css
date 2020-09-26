@@ -1,19 +1,16 @@
-.home {
-  width: 100%;
-  border: 1px solid white;
-  margin: 0 auto;
-  text-align: center;
-  min-height: 100vh;
-  background-color: #faf7f4;
+body {
+  background-color: #fafafa;
 }
 .jumbo {
+  border: 1px solid black;
+  text-align: center;
   position: relative;
   color: #ffc702;
-  background-color: rgb(37, 37, 37);
+  background-color: black;
   border-radius: 10px;
   width: 50%;
   margin: 10px auto;
-  min-height: 100vh;
+  min-height: 90vh;
   font-family: "Roboto", sans-serif;
   padding: 30px;
   display: flex;
@@ -33,11 +30,13 @@
   font-size: 25px;
 }
 .account {
+  width: 70%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin: 0 auto;
 }
 .btn {
-  margin-right: 15px;
+  width: 150px;
   color: white;
   font-size: 20px;
   text-decoration: none;
@@ -49,14 +48,18 @@
   color: white;
   font-size: 25px;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   .jumbo {
     width: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
+    height: 100vh;
   }
   .home {
     height: 10px;
+  }
+  .account {
+    width: 100%;
   }
 }

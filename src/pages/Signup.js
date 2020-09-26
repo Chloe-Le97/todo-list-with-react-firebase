@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { signup } from "../helpers/auth";
+import { signup, signInWithGoogle } from "../helpers/auth";
 import "./Signup.css";
 import "./Login.css";
 
@@ -15,6 +15,7 @@ class Signup extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.googleSignIn = this.googleSignIn.bind(this);
   }
 
   handleChange(event) {
@@ -37,7 +38,14 @@ class Signup extends Component {
       }
     }
   }
-
+  async googleSignIn(event) {
+    event.preventDefault();
+    try {
+      await signInWithGoogle();
+    } catch (error) {
+      this.setState({ error: error.message });
+    }
+  }
   render() {
     return (
       <div className="container2">
@@ -77,13 +85,16 @@ class Signup extends Component {
               type="password"
             ></input>
           </div>
-          <div>
+          <div className="form-button">
             {this.state.error ? (
               <div className="form-error">{this.state.error}</div>
             ) : null}
-            <button className="signUpBtn" type="submit">
+            <button className="loginbtn" type="submit">
               Sign Up
             </button>
+            <div className="loginGg" type="button" onClick={this.googleSignIn}>
+              <div>Sign In With Google</div>
+            </div>
           </div>
         </form>
 

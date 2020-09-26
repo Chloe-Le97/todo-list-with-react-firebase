@@ -1,13 +1,10 @@
-body {
-  background-color: rgb(253, 252, 252);
-}
 .container2 {
   width: 50%;
-  margin: 70px auto;
-  height: 100vh;
+  margin: 2px auto;
+  height: 90vh;
   font-family: "Roboto", sans-serif;
   padding: 30px;
-  background-color: rgb(37, 37, 37);
+  background-color: black;
   border-radius: 10px;
   text-align: center;
   color: white;
@@ -48,7 +45,7 @@ body {
 }
 .loginbtn {
   height: 40px;
-  width: 60%;
+  width: 150px;
   cursor: pointer;
   background-color: rgb(82, 224, 0);
   color: black;
@@ -61,18 +58,16 @@ body {
   color: black;
 }
 .loginGg {
-  display: block;
+  text-align: center;
   margin: 10px auto;
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: #4285f4;
   text-align: center;
   line-height: 50px;
   min-height: 50px;
-  width: 60%;
+  width: 150px;
   background-repeat: no-repeat;
   cursor: pointer;
-  display: flex;
-  align-content: center;
   font-weight: 700;
 }
 .loginGg:hover {
@@ -95,7 +90,7 @@ body {
   .container2 {
     width: 82%;
     overflow: hidden;
-    height: 100vh;
+    height: 90vh;
     margin-top: 0;
   }
   .form-group input {
@@ -108,7 +103,6 @@ body {
     display: inline-block;
   }
   .loginGg {
-    line-height: 25px;
     height: 20px;
     font-size: 15px;
   }
