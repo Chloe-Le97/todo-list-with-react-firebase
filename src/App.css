@@ -1,3 +1,7 @@
 .App {
   text-align: center;
 }
+.loading-caption{
+  font-size: 25px;
+  font-weight: 700;
+}

@@ -103,21 +103,10 @@ delItem(key){
                     value={this.state.activity}
                   ></input>
 
-                  {this.state.error ? (
-                    <p className="text-danger">{this.state.error}</p>
-                  ) : null}
                   <button type="submit" className="btn-submit">
                     +
                   </button>
 
-                  {/* loading indicator */}
-                  {this.state.loading ? (
-                    <div className="loading">
-                      <span className="loading-title">Loading...</span>
-                    </div>
-                  ) : (
-                    ""
-                  )}
                 </form>
                 <ul>
                   {this.state.todo.map((item) => {

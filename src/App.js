@@ -11,6 +11,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import { auth } from "./services/firebase";
 import ResetPassword from "./pages/resetPassword";
+import './App.css'
 
 function PrivateRoute({ component: Component, authenticated, ...rest }) {
   return (
@@ -73,8 +74,10 @@ class App extends React.Component {
     return (
       <div className="body">
         {this.state.loading === true ? (
-          <div className="spinner-border text-success" role="status">
-            <span className="sr-only">Loading...</span>
+          <div className='jumbo'>
+            <div></div>
+            <div className="loading-caption">Loading...</div>
+            <div></div>
           </div>
         ) : (
           <Router>
